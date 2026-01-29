@@ -1,0 +1,249 @@
+.info {
+    padding: 20px;
+    border-radius: 16px;
+    flex: 1;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.info.light {
+    background: #FFFFFF;
+    border: 2px solid #E8F5E9;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.info.dark {
+    background: #303030;
+    border: 2px solid #424242;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.title {
+    font-size: clamp(24px, 5vw, 28px);
+    font-weight: 700;
+    margin: 0;
+    color: #2E7D32;
+    line-height: 1.2;
+}
+
+.info.dark .title {
+    color: #66BB6A;
+}
+
+.themeButton {
+    background: #F1F8E9;
+    border: 2px solid #C8E6C9;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 1;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.info.dark .themeButton {
+    background: #424242;
+    border-color: #616161;
+    color: #fff;
+}
+
+.themeButton:hover {
+    background: #E8F5E9;
+    transform: scale(1.05);
+}
+
+.info.dark .themeButton:hover {
+    background: #4a4a4a;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #F9F9F9;
+    border: 1px solid #E8F5E9;
+}
+
+.info.dark .stat {
+    background: #424242;
+    border-color: #616161;
+}
+
+.statLabel {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.info.dark .statLabel {
+    color: #aaa;
+}
+
+.statValue {
+    font-size: clamp(28px, 6vw, 32px);
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: #2E7D32;
+    line-height: 1;
+}
+
+.info.dark .statValue {
+    color: #66BB6A;
+}
+
+.message {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease;
+    border: 1px solid #388E3C;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.messageText {
+    font-size: clamp(18px, 4vw, 20px);
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.messageSubtext {
+    font-size: clamp(14px, 3vw, 16px);
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.newGameButton {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: clamp(16px, 4vw, 18px);
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.newGameButton:hover {
+    background: linear-gradient(135deg, #45a049, #2E7D32);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.instructions {
+    font-size: clamp(14px, 3vw, 15px);
+    line-height: 1.5;
+    color: #666;
+    padding: 16px;
+    border-radius: 12px;
+    background: #F9F9F9;
+    border: 1px solid #E8F5E9;
+}
+
+.info.dark .instructions {
+    background: #424242;
+    border-color: #616161;
+    color: #ccc;
+}
+
+.instructions p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.instructions p:first-child {
+    margin-top: 0;
+}
+
+.instructions p:last-child {
+    margin-bottom: 0;
+}
+
+.instructions p::before {
+    content: "• ";
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.info.dark .instructions p::before {
+    color: #66BB6A;
+}
+
+@media (max-width: 480px) {
+    .info {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .stat {
+        min-width: calc(50% - 6px);
+        padding: 14px;
+    }
+
+    .statLabel {
+        font-size: 13px;
+    }
+
+    .message {
+        padding: 16px;
+    }
+
+    .instructions {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .themeButton {
+        align-self: flex-start;
+    }
+
+    .stat {
+        min-width: 100%;
+    }
+
+    .instructions p::before {
+        margin-right: 6px;
+    }
+}
