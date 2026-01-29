@@ -1,0 +1,66 @@
+.board {
+    padding: 20px;
+    border-radius: 16px;
+    flex: 1;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.board.light {
+    background: #FFFFFF;
+    border: 2px solid #E8F5E9;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.board.dark {
+    background: #303030;
+    border: 2px solid #424242;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.cardSlot {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 480px) {
+    .board {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .grid {
+        gap: 10px;
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 380px) {
+    .board {
+        padding: 12px;
+    }
+
+    .grid {
+        gap: 8px;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 340px) {
+    .grid {
+        gap: 6px;
+        max-width: 280px;
+    }
+}
