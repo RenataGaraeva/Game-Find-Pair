@@ -1,0 +1,195 @@
+.card {
+    width: 100%;
+    height: 100%;
+    perspective: 500px;
+}
+
+.cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+}
+
+.flipped .cardInner {
+    transform: rotateY(180deg);
+}
+
+.matched .cardInner {
+    transform: rotateY(180deg);
+    opacity: 0.4;
+}
+
+.cardFront,
+.cardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cardFront {
+    background: #4CAF50;
+    transform: rotateY(180deg);
+    border: 1px solid transparent;
+}
+
+.card.light .cardFront {
+    border-color: #388E3C;
+}
+
+.card.dark .cardFront {
+    border-color: #4CAF50;
+}
+
+.matched .cardFront {
+    background: #81C784;
+}
+
+.card.light .matched .cardFront {
+    border-color: #4CAF50;
+}
+
+.card.dark .matched .cardFront {
+    border-color: #81C784;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image {
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+}
+
+.matched .image {
+    animation: pulseImage 1.5s infinite;
+}
+
+@keyframes pulseImage {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0) 30%,
+            rgba(0, 0, 0, 0) 70%,
+            rgba(0, 0, 0, 0.1) 100%
+    );
+    pointer-events: none;
+}
+
+.fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4CAF50;
+}
+
+.matched .fallback {
+    background: #81C784;
+}
+
+.fallbackText {
+    font-size: clamp(28px, 6vw, 40px);
+    font-weight: 700;
+    color: white;
+    font-family: 'Courier New', monospace;
+}
+
+.cardBack {
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.card.light .cardBack {
+    background: #ffffff;
+    border-color: #E0E0E0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card.dark .cardBack {
+    background: #424242;
+    border-color: #616161;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.matched {
+    cursor: default !important;
+}
+
+.matched:hover {
+    cursor: default;
+}
+
+.dotPattern {
+    width: 100%;
+    height: 100%;
+    background-image:
+            radial-gradient(circle, #9E9E9E 20%, transparent 21%),
+            radial-gradient(circle, #9E9E9E 20%, transparent 21%);
+    background-size: clamp(10px, 2.5vw, 14px) clamp(10px, 2.5vw, 14px);
+    background-position: 0 0, 7px 7px;
+    background-repeat: repeat;
+    opacity: 0.4;
+}
+
+.card.dark .dotPattern {
+    background-image:
+            radial-gradient(circle, #BDBDBD 20%, transparent 21%),
+            radial-gradient(circle, #BDBDBD 20%, transparent 21%);
+}
+
+.card:hover:not(.flipped):not(.matched) .cardBack {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card.light:hover:not(.flipped):not(.matched) .cardBack {
+    background: #f5f5f5;
+}
+
+.card.dark:hover:not(.flipped):not(.matched) .cardBack {
+    background: #4a4a4a;
+}
+
+@media (max-width: 480px) {
+    .imageContainer {
+        padding: 8px;
+    }
+
+    .fallbackText {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 360px) {
+    .imageContainer {
+        padding: 6px;
+    }
+
+    .fallbackText {
+        font-size: 20px;
+    }
+}
